@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo — Sales Analytics</title>
+    <link rel="stylesheet" href="css/marketplace.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .demo-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .controls {
+            display:flex;
+            gap:12px;
+            align-items:center;
+            margin-bottom:18px;
+            flex-wrap:wrap;
+        }
+        .stat-row { display:flex; gap:16px; margin-top:14px; }
+        .stat { background:var(--dark-gray); padding:14px; border-radius:8px; min-width:160px; text-align:center; }
+        .stat h4 { margin:0 0 6px 0; color:var(--light-gray); font-size:13px; }
+        .stat p { margin:0; font-size:18px; font-weight:700; }
+    </style>
+</head>
+<body>
+    <div class="container demo-page">
+        <h1>Sales Analytics — Demo</h1>
+        <p style="color:var(--light-gray);">Interactive demo of sales analytics. Use the range selector to simulate different views.</p>
+
+        <div class="controls">
+            <label style="color:var(--light-gray);">Range:</label>
+            <select id="rangeSelect">
+                <option value="7">Last 7 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+            </select>
+
+            <button id="regen" class="demo-link">Regenerate Data</button>
+
+            <div style="margin-left:auto; color:var(--light-gray);">Source: Demo generated data</div>
+        </div>
+
+        <canvas id="salesChart" height="160"></canvas>
+
+        <div class="stat-row">
+            <div class="stat">
+                <h4>Total Sales</h4>
+                <p id="totalSales">—</p>
+            </div>
+            <div class="stat">
+                <h4>Avg / Day</h4>
+                <p id="avgSales">—</p>
+            </div>
+            <div class="stat">
+                <h4>Top Day</h4>
+                <p id="topDay">—</p>
+            </div>
+        </div>
+
+        <p style="margin-top:22px; color:var(--light-gray);">This is a lightweight demo using Chart.js from CDN. No external data required.</p>
+
+        <p style="margin-top:30px;"><a href="demo-hub.html" class="demo-link">← Back to Demo Hub</a></p>
+    </div>
+
+    <script src="js/demo-analytic-sales.js"></script>
+</body>
+</html>
